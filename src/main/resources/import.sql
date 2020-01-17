@@ -1,0 +1,1 @@
+INSERT INTO gift(id,name) VALUES (1,'hello');
