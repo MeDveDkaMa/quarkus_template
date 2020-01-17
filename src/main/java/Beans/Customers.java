@@ -7,6 +7,9 @@ import javax.transaction.Transactional;
 
 @Entity
 @Table(name="Customers")
+@NamedQuery(name = "Customers.findAll",
+        query = "SELECT f FROM Customers f ORDER BY f.id",
+        hints = @QueryHint(name = "org.hibernate.cacheable", value = "true") )
 public class Customers {
 
     @Id

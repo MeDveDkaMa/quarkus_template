@@ -16,19 +16,16 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.persistence.EntityManager;
+import java.util.List;
 
 
-@Path("/hello")
+@Path("")
 public class GreetingResource {
     @Inject
     SantaClausService santaClausService;
 
     @Inject
     CustomerService customerService;
-
-
-    @Inject
-    EntityManager entityManager;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -37,57 +34,36 @@ public class GreetingResource {
     }
 
     @GET
-    @Path("/person")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Customers helloPerson() {
-        return customerService.helloPerson();
-    }
-
-    @GET
-    @Path("/emma/{id}")
+    @Path("/gift/search/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Gift SearchGift(@PathParam Integer id) {
-        Gift entity = entityManager.find(Gift.class, id);
-        if (entity == null) {
-            throw new WebApplicationException("Fruit with id of " + id + " does not exist.", 404);
-        }
-        return entity;
-    }
-
-
-    @Transactional
-    @POST
-    @Path("/AddGift3")
-    @Produces(MediaType.APPLICATION_JSON)
-    public void AddedGiftf(String disk) {
-        santaClausService.createGift(disk);
-    }
-
-
-    @Transactional
-    @POST
-    @Path("/AddGift1")
-    @Produces(MediaType.APPLICATION_JSON)
-    public void AddedGift(Gift gift) {
-        entityManager.persist(gift);
+        return santaClausService.SearchGift(id);
     }
 
     @Transactional
     @POST
-    @Path("/AddGift2")
+    @Path("/gift/add")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(Gift gift) {
-        entityManager.persist(gift);
+    public Response CreateGift(Gift gift) {
+        santaClausService.createGift(gift);
         return Response.ok(gift).status(201).build();
     }
 
     @POST
-    @Path("/AddCustomer")
+    @Path("/customer/AddCustomer")
     @Produces(MediaType.APPLICATION_JSON)
     public Response CreatePerson(Customers customer) {
         customerService.CreatePerson(customer);
-        return Response.ok().build();
+        return Response.ok().status(201).build();
     }
+
+    @GET
+    @Path("/customer/GetCustomer")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Customers[] GetCustomer() {
+        return customerService.GetCustomer();
+    }
+
 }
 
 
@@ -102,4 +78,11 @@ public class GreetingResource {
 //        return Response.ok(result).build();
 //    }
 
+//    @Transactional
+//    @POST
+//    @Path("/AddGift1")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public void AddedGift(Gift gift) {
+//        entityManager.persist(gift);
+//    }
 
