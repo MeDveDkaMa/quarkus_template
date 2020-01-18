@@ -49,11 +49,12 @@ public class GreetingResource {
         return Response.ok(gift).status(201).build();
     }
 
+    @Transactional
     @POST
-    @Path("/customer/AddCustomer")
+    @Path("/customer/add")
     @Produces(MediaType.APPLICATION_JSON)
     public Response CreatePerson(Customers customer) {
-        customerService.CreatePerson(customer);
+        customerService.CreateCustomer(customer);
         return Response.ok().status(201).build();
     }
 

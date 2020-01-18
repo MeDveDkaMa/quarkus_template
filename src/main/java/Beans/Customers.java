@@ -1,22 +1,24 @@
 package Beans;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.*;
-import javax.transaction.Transactional;
+
 
 @Entity
 @Table(name="Customers")
 @NamedQuery(name = "Customers.findAll",
         query = "SELECT f FROM Customers f ORDER BY f.id",
         hints = @QueryHint(name = "org.hibernate.cacheable", value = "true") )
+
 public class Customers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "fistname")
+    private String firstname;
+    @Column(name = "lastname")
+    private String lastname;
+    @Column(name = "email")
+    private String email;
     @Column(name = "age")
     private int age;
 
@@ -24,9 +26,12 @@ public class Customers {
 
     }
 
-    public Customers(String name, int age){
-        this.name = name;
-        this.age = age;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getId() {
@@ -37,12 +42,20 @@ public class Customers {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public int getAge() {

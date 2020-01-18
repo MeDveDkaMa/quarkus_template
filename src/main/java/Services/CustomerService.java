@@ -22,7 +22,7 @@ public class CustomerService {
 
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
-    public void CreatePerson(Customers customer) {
+    public void CreateCustomer(Customers customer) {
         entityManager.persist(customer);
 //        return Response.ok().build();
     }
