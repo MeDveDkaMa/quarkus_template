@@ -1,10 +1,7 @@
 package WEBResources;
 
-import Beans.Author;
-import Beans.Book;
-import Beans.Client;
+import Beans.*;
 
-import Beans.Dish;
 import Services.CustomerService;
 
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
@@ -27,17 +24,19 @@ public class Dishes {
     @Path("dish/addDish")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void addDish(@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId) { //@FormParam String name, @FormParam Long clientId
-        Client client = Client.findById(clientId);
-        if (client == null) {
-            return;
-        }
+    public void addDish(@FormParam String name, @FormParam String composition, @FormParam int price) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+//        Client client = Client.findById(clientId);
+//        if (client == null) {
+//            return;
+//        }
+
         Dish dish = new Dish();
         dish.name = name;
         dish.composition = composition;
         dish.price = price;
-        dish.client = client;
+//        dish.client = client;
         dish.persist();
+
     }
 
     @GET

@@ -6,21 +6,19 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
-public class Dish extends PanacheEntity {
-
-    public int price;
-    public String name;
-    public String composition;
+public class Cart extends PanacheEntity {
 
 
-//    @ManyToOne
+    @ManyToOne
+    @JsonbTransient
+    public Client client;
+
+//    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 //    @JsonbTransient
-//    public CartProduct cartProduct;
+//    public List<Dish> dishes;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonbTransient
     public List<CartProduct> cartProducts;
-
 }

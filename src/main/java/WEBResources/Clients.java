@@ -35,4 +35,11 @@ public class Clients {
         return Client.listAll();
     }
 
+    @GET
+    @Path("client/GetClientRole")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Role> GetRole() {
+        return Role.listAll();
+    }
+
 }
