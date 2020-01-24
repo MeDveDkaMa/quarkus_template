@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+//@Entity
 
 public class Author extends PanacheEntity {
 
@@ -24,22 +24,22 @@ public class Author extends PanacheEntity {
 
     public List<Book> books;
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) {
-//            return true;
-//        }
-//        if (!(o instanceof Author)) {
-//            return false;
-//        }
-//
-//        Author other = (Author) o;
-//
-//        return Objects.equals(id, other.id);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return 31;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Author)) {
+            return false;
+        }
+
+        Author other = (Author) o;
+
+        return Objects.equals(id, other.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
 }

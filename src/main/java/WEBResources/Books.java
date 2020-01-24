@@ -21,7 +21,6 @@ public class Books {
         if (author == null) {
             return;
         }
-
         Book book = new Book();
         book.title = title;
         book.author = author;

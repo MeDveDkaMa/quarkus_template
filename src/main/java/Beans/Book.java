@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.util.Objects;
 
-@Entity
+//@Entity
 
 public class Book extends PanacheEntity {
 
@@ -19,22 +19,22 @@ public class Book extends PanacheEntity {
     @JsonbTransient
     public Author author;
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) {
-//            return true;
-//        }
-//        if (!(o instanceof Book)) {
-//            return false;
-//        }
-//
-//        Book other = (Book) o;
-//
-//        return Objects.equals(id, other.id);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return 31;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Book)) {
+            return false;
+        }
+
+        Book other = (Book) o;
+
+        return Objects.equals(id, other.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
 }
