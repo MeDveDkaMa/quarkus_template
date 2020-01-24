@@ -4,6 +4,7 @@ import Beans.*;
 
 import Services.CustomerService;
 
+import Services.DishesService;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
@@ -20,30 +21,23 @@ import java.util.Set;
 @Path("")
 public class Dishes {
 
+    @Inject
+    DishesService dishesService;
+
     @PUT
     @Path("dish/addDish")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void addDish(@FormParam String name, @FormParam String composition, @FormParam int price) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
-//        Client client = Client.findById(clientId);
-//        if (client == null) {
-//            return;
-//        }
-
-        Dish dish = new Dish();
-        dish.name = name;
-        dish.composition = composition;
-        dish.price = price;
-//        dish.client = client;
-        dish.persist();
-
+    public Response addDish(@FormParam String name, @FormParam String composition, @FormParam int price) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+        dishesService.addDish(name,composition,price);
+        return Response.ok().status(201).build();
     }
 
     @GET
     @Path("dish/GetDish")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Dish> GetDish() {
-        return Dish.listAll();
+        return dishesService.GetDish();
     }
 
 
