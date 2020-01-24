@@ -1,7 +1,6 @@
 package Services;
 
-import Beans.Customers;
-import Beans.Gift;
+
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -15,17 +14,17 @@ public class CustomerService {
     @Inject
     EntityManager entityManager;
 
+//
+//    public zzzzzzzzzzzzustomers[] GetCustomer() {
+//        return entityManager.createNamedQuery("Customers.findAll", zzzzzzzzzzzzustomers.class).getResultList().toArray(new zzzzzzzzzzzzustomers[0]);
+//    }
 
-    public Customers[] GetCustomer() {
-        return entityManager.createNamedQuery("Customers.findAll",Customers.class).getResultList().toArray(new Customers[0]);
-    }
-
-    @Transactional
-    @Produces(MediaType.APPLICATION_JSON)
-    public void CreateCustomer(Customers customer) {
-        entityManager.persist(customer);
-//        return Response.ok().build();
-    }
+//    @Transactional
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public void CreateCustomer(zzzzzzzzzzzzustomers customer) {
+//        entityManager.persist(customer);
+////        return Response.ok().build();
+//    }
 
 
 }
