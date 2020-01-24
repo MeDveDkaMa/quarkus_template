@@ -1,6 +1,7 @@
 package WEBResources;
 
 import Beans.Client;
+import Beans.Role;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.transaction.Transactional;
@@ -15,8 +16,12 @@ public class Clients {
     @Path("client/add")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void addClient(@FormParam String name, @FormParam String  adress, @FormParam String email) { //@FormParam String name, @FormParam Long clientId
+    public void addClient(@FormParam String name, @FormParam String  adress, @FormParam String email, @FormParam String roleUser) { //@FormParam String name, @FormParam Long clientId
         Client client = new Client();
+        Role role = new Role();
+        role.roleName = roleUser;
+        role.persist();
+        client.role = role;
         client.name = name;
         client.adress = adress;
         client.email = email;

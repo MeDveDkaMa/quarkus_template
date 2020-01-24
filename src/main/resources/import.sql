@@ -17,6 +17,8 @@ INSERT INTO author(id, firstname, lastname) VALUES (3,'Sasha','belyu');
 INSERT INTO author(id, firstname, lastname) VALUES (4,'Maria','shi');
 INSERT INTO author(id, firstname, lastname) VALUES (5,'za','aw');
 
+INSERT INTO role(id,rolename) values (1,'user');
+
 
 -- INSERT INTO dish(id, composition, name, price, dish_id) VALUES (1,'Свекла, капуста', 'Борщ',220)
 

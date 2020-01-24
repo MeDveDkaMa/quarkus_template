@@ -3,6 +3,7 @@ package Beans;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -20,10 +21,11 @@ public class Client extends PanacheEntity {
 
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-
     public List<Dish> dish;
 
-
+    @ManyToOne
+    @JsonbTransient
+    public Role role;
 
 
 }
