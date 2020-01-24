@@ -1,4 +1,4 @@
-package org.acme.config;
+package WEBResources;
 
 import Beans.Author;
 import Beans.Book;
@@ -21,49 +21,7 @@ import java.util.Set;
 
 
 @Path("")
-public class GreetingResource {
-
-    @PUT
-    @Path("book")
-    @Transactional
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void addBook(@org.jboss.resteasy.annotations.jaxrs.FormParam String title, @FormParam Long authorId) {
-        Author author = Author.findById(authorId);
-        if (author == null) {
-            return;
-        }
-
-        Book book = new Book();
-        book.title = title;
-        book.author = author;
-        book.persist();
-    }
-
-    @GET
-    @Path("/book/GetBook")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Book> GetBook() {
-        return Book.listAll();
-    }
-
-    @PUT
-    @Path("client/add")
-    @Transactional
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void addClient(@FormParam String name, @FormParam String  adress, @FormParam String email) { //@FormParam String name, @FormParam Long clientId
-        Client client = new Client();
-        client.name = name;
-        client.adress = adress;
-        client.email = email;
-        client.persist();
-    }
-
-    @GET
-    @Path("/client/GetClient")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Client> GetClient() {
-        return Client.listAll();
-    }
+public class Dishes {
 
     @PUT
     @Path("dish/addDish")
@@ -82,6 +40,12 @@ public class GreetingResource {
         dish.persist();
     }
 
+    @GET
+    @Path("dish/GetDish")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Dish> GetDish() {
+        return Dish.listAll();
+    }
 
 
 }
