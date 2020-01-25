@@ -22,18 +22,24 @@ public class Orders {
     OrderService orderService;
 
     @PUT
-    @Path("orders/addOrder")
+    @Path("orders/addToOrder")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response addOrder(@FormParam Long dishID, @FormParam Long orderID, @FormParam int cout) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
-      orderService.addOrder(dishID,orderID,cout);
-      return Response.ok().status(201).build();
+        orderService.addToOrder(dishID,orderID,cout);
+        return Response.ok().status(201).build();
     }
 
-    public void createOrder(){
-        Cart cart = new Cart();
-        cart.persist();
+    @PUT
+    @Path("orders/CreateOrder")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response CreateOrder(@FormParam Long clientID) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+        orderService.createCart(clientID);
+        return Response.ok().status(201).build();
     }
+
+
 
 //    public void addToOrder(Dish dish){
 //        addOrder(dish.id,);

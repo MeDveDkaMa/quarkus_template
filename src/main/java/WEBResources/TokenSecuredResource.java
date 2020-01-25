@@ -4,6 +4,7 @@ package WEBResources;
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -12,14 +13,15 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 
-@Path("/secured")
+@Path("")
 @ApplicationScoped
 public class TokenSecuredResource {
 
 
+
     @GET()
-    @Path("roles-allowed")
-    @RolesAllowed({"Echoer", "Subscriber"})
+    @Path("TEST")
+    @RolesAllowed({"Echoer", "Subscriber","user"})
     @Produces(MediaType.TEXT_PLAIN)
     public String helloRolesAllowed(@Context SecurityContext ctx) {
         Principal caller =  ctx.getUserPrincipal();

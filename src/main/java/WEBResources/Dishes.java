@@ -2,8 +2,6 @@ package WEBResources;
 
 import Beans.*;
 
-import Services.CustomerService;
-
 import Services.DishesService;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
