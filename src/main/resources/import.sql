@@ -8,16 +8,32 @@
 -- INSERT INTO customers(id, age,fistname,lastname,email,adress ) VALUES (3,25,'Vladimir','Molodcov','MolodovE','Vladimir8May');
 -- INSERT INTO customers(id, age,fistname,lastname,email,adress ) VALUES (4,55,'Ksenia','Shevchik','SvevchikE','Ksenia4May');
 
-INSERT  INTO client(id,adress,email,name) values (1,'9May','medved@gmail.com','sasha');
-INSERT  INTO client(id,adress,email,name) values (2,'9May','medved2@gmail.com','sasha2');
+-- INSERT  INTO client(id,adress,email,name) values (1,'9May','medved@gmail.com','sasha');
+-- INSERT  INTO client(id,adress,email,name) values (2,'9May','medved2@gmail.com','sasha2');
 
-INSERT INTO author(id, firstname, lastname) VALUES (1,'leonid','agutin');
+INSERT INTO dish(id, composition, name, price) VALUES (1,'Свекла, капуста','борщ',220);
+INSERT INTO dish(id, composition, name, price) VALUES (2,'Рис','Рис',100);
+INSERT INTO dish(id, composition, name, price) VALUES (3,'Помидоры, огурцы, сыр','Пицца',220);
+INSERT INTO dish(id, composition, name, price) VALUES (4,'Свекла, капуста','борщ',450);
+
+
+CREATE TABLE test_user (
+                           id INT,
+                           username VARCHAR(255),
+                           password VARCHAR(255),
+                           role VARCHAR(255)
+);
+
+INSERT INTO test_user (id, username, password, role) VALUES (1, 'admin', 'admin', 'admin');
+INSERT INTO test_user (id, username, password, role) VALUES (2, 'user','user', 'user');
+
+-- INSERT INTO author(id, firstname, lastname) VALUES (1,'leonid','agutin');
 INSERT INTO author(id, firstname, lastname) VALUES (2,'Alla','gonchar');
-INSERT INTO author(id, firstname, lastname) VALUES (3,'Sasha','belyu');
-INSERT INTO author(id, firstname, lastname) VALUES (4,'Maria','shi');
-INSERT INTO author(id, firstname, lastname) VALUES (5,'za','aw');
+-- INSERT INTO author(id, firstname, lastname) VALUES (3,'Sasha','belyu');
+-- INSERT INTO author(id, firstname, lastname) VALUES (4,'Maria','shi');
+-- INSERT INTO author(id, firstname, lastname) VALUES (5,'za','aw');
 
-INSERT INTO role(id,rolename) values (1,'user');
+-- INSERT INTO role(id,rolename) values (1,'user');
 
 
 

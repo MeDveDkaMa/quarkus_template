@@ -7,6 +7,7 @@ import Beans.Dish;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class OrderService {
@@ -40,5 +41,12 @@ public class OrderService {
         cart.persist();
     }
 
+    public List<CartProduct> getDishesInCart(){
+      return CartProduct.listAll();
+    }
+
+    public List<Dish> GetDish() {
+        return Dish.listAll();
+    }
 
 }

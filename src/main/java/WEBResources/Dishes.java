@@ -6,6 +6,7 @@ import Services.DishesService;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -23,6 +24,7 @@ public class Dishes {
     DishesService dishesService;
 
     @PUT
+    @RolesAllowed({"admin","user"})
     @Path("dish/addDish")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)

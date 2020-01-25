@@ -10,9 +10,10 @@ import java.util.List;
 
 public class Client extends PanacheEntity {
 
-    public String name;
+    public String username;
     public String adress;
     public String email;
+    public String password;
 
 
 

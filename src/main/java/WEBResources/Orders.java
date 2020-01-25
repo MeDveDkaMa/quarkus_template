@@ -9,11 +9,10 @@ import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("")
 public class Orders {
@@ -39,11 +38,14 @@ public class Orders {
         return Response.ok().status(201).build();
     }
 
+    @GET
+    @Path("orders/GetOrder")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CartProduct> GetDish() {
+        return orderService.getDishesInCart();
+    }
 
 
-//    public void addToOrder(Dish dish){
-//        addOrder(dish.id,);
-//    }
 
 
 }

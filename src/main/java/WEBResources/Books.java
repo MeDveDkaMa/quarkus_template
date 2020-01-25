@@ -4,6 +4,7 @@ import Beans.Book;
 import Services.BookService;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -19,6 +20,7 @@ public class Books {
 
 
     @PUT
+    @RolesAllowed("user")
     @Path("book")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)

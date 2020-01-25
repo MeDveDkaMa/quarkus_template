@@ -18,12 +18,15 @@ public class Clients {
     @Inject
     ClientService clientService;
 
+
+
+
     @PUT
     @Path("client/add")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response addClient(@FormParam String name, @FormParam String  adress, @FormParam String email, @FormParam String roleUser) { //@FormParam String name, @FormParam Long clientId
-      clientService.addClient(name,adress,email,roleUser);
+    public Response addClient(@FormParam String name, @FormParam String  adress, @FormParam String email, @FormParam String roleUser,@FormParam String passwordUser) { //@FormParam String name, @FormParam Long clientId
+      clientService.addClient(name,adress,email,roleUser,passwordUser);
       return Response.ok().status(201).build();
     }
 

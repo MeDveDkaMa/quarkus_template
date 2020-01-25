@@ -66,7 +66,7 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-elytron-security-oauth2</artifactId>
+      <artifactId>quarkus-elytron-security-jdbc</artifactId>
     </dependency>
   </dependencies>
   <build>
