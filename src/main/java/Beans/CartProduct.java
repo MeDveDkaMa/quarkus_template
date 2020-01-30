@@ -13,15 +13,38 @@ public class CartProduct extends PanacheEntity {
     public int count;
 
     @ManyToOne
-    @JsonbTransient
+   // @JsonbTransient
     public Cart cart;
 
     @ManyToOne
-    @JsonbTransient
+   // @JsonbTransient
     public Dish dish;
 
+    public int getCount() {
+        return count;
+    }
 
-//    @OneToMany(mappedBy = "cartProduct", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Dish getDish() {
+        return dish;
+    }
+
+    public void setDish(Dish dish) {
+        this.dish = dish;
+    }
+
+    //    @OneToMany(mappedBy = "cartProduct", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 //    @JsonbTransient
 //    public List<Dish> dishes;
 

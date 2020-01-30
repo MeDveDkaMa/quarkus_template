@@ -20,12 +20,12 @@ public class Orders {
     @Inject
     OrderService orderService;
 
-    @PUT
+    @POST
     @Path("orders/addToOrder")
     @Transactional
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response addOrder(@FormParam Long dishID, @FormParam Long orderID, @FormParam int cout) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
-        orderService.addToOrder(dishID,orderID,cout);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addOrder(CartProduct cartProduct) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+        orderService.addToOrder(cartProduct);
         return Response.ok().status(201).build();
     }
 

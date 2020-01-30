@@ -16,21 +16,23 @@ public class OrderService {
     }
 
 
-    public void addToOrder(@FormParam Long dishID, @FormParam Long orderID, @FormParam int cout) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
-        Dish dish = Dish.findById(dishID);
+    public void addToOrder(CartProduct cartProductIN) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+        Dish dish = Dish.findById(cartProductIN.getDish().id);
         if (dish == null) {
+            System.out.println("DISH NULL");
             return;
         }
 
-        Cart cart = Cart.findById(orderID);
+        Cart cart = Cart.findById(cartProductIN.getCart().id);
         if (cart == null) {
+            System.out.println("CART NULL");
             return;
         }
 
         CartProduct cartProduct = new CartProduct();
         cartProduct.cart = cart;
         cartProduct.dish = dish;
-        cartProduct.count = cout;
+        cartProduct.count = cartProductIN.count;
         cartProduct.persist();
     }
 

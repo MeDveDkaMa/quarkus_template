@@ -23,13 +23,13 @@ public class Dishes {
     @Inject
     DishesService dishesService;
 
-    @PUT
-    @RolesAllowed({"admin","user"})
+    @POST
+   // @RolesAllowed({"admin","user"})
     @Path("dish/addDish")
     @Transactional
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response addDish(@FormParam String name, @FormParam String composition, @FormParam int price) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
-        dishesService.addDish(name,composition,price);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addDish(Dish dish) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+        dishesService.addDish(dish);
         return Response.ok().status(201).build();
     }
 

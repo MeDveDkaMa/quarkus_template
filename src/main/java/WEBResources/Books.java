@@ -23,7 +23,7 @@ public class Books {
     @RolesAllowed("user")
     @Path("book")
     @Transactional
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response addBook(@FormParam String title, @FormParam Long authorId){
         bookService.addBook(title,authorId);
         return Response.ok().status(201).build();

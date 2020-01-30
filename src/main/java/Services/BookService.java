@@ -14,7 +14,7 @@ public class BookService {
     public BookService() {
     }
 
-    public void addBook(@FormParam String title, @FormParam Long authorId) {
+    public void addBook(String title, Long authorId) {
         Author author = Author.findById(authorId);
         if (author == null) {
             return;
