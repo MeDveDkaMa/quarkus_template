@@ -29,6 +29,14 @@ public class Clients {
     }
 
     @GET
+    @Path("client/login")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(Client client) throws NoSuchAlgorithmException {
+        return clientService.login(client);
+    }
+
+
+    @GET
     @Path("client/GetClient")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Client> GetClient() {

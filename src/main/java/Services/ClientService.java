@@ -5,6 +5,7 @@ import Beans.Role;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.core.Response;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -40,8 +41,21 @@ public class ClientService {
     }
 
 
-    public void login(){
-
+    public Response login(Client clientIN) throws NoSuchAlgorithmException {
+        Client findUser = Client.find("email", clientIN.getEmail()).firstResult();
+        if (findUser == null){
+            System.out.println("Пользователь не найден");
+            return Response.ok().status(404).build();
+        } else {
+            if(doHash(clientIN.getPassword()).equalsIgnoreCase(findUser.getPassword())) { //12344
+                System.out.println("Пароли совпали");
+                Client clientResponse = new Client();
+                clientResponse.password = doHash(clientIN.getPassword());
+                clientResponse.email = clientIN.getEmail();
+                return Response.ok(clientResponse).status(200).build();
+            } else
+                return Response.ok().status(404).build();
+        }
     }
 
 
