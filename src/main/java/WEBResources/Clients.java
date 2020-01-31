@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Path("")
@@ -22,7 +23,7 @@ public class Clients {
     @Path("client/add")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addClient(Client client) { //@FormParam String name, @FormParam Long clientId
+    public Response addClient(Client client) throws NoSuchAlgorithmException { //@FormParam String name, @FormParam Long clientId
       clientService.addClient(client);
       return Response.ok().status(201).build();
     }
