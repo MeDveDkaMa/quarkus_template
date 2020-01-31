@@ -36,8 +36,8 @@ public class OrderService {
         cartProduct.persist();
     }
 
-    public void createCart(@FormParam Long clientID){
-        Client client = Client.findById(clientID);
+    public void createCart(Cart cartIN){
+        Client client = Client.findById(cartIN.id);
         Cart cart = new Cart();
         cart.client=client;
         cart.persist();

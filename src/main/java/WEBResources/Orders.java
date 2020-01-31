@@ -29,12 +29,12 @@ public class Orders {
         return Response.ok().status(201).build();
     }
 
-    @PUT
+    @POST
     @Path("orders/CreateOrder")
     @Transactional
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response CreateOrder(@FormParam Long clientID) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
-        orderService.createCart(clientID);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response CreateOrder(Cart cart) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+        orderService.createCart(cart);
         return Response.ok().status(201).build();
     }
 
@@ -44,8 +44,6 @@ public class Orders {
     public List<CartProduct> GetDish() {
         return orderService.getDishesInCart();
     }
-
-
 
 
 }
