@@ -28,7 +28,7 @@ public class Clients {
       return Response.ok().status(201).build();
     }
 
-    @GET
+    @POST
     @Path("client/login")
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(Client client) throws NoSuchAlgorithmException {

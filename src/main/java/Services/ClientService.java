@@ -52,6 +52,7 @@ public class ClientService {
                 Client clientResponse = new Client();
                 clientResponse.password = doHash(clientIN.getPassword());
                 clientResponse.email = clientIN.getEmail();
+                clientResponse.id = findUser.id;
                 return Response.ok(clientResponse).status(200).build();
             } else
                 return Response.ok().status(404).build();
