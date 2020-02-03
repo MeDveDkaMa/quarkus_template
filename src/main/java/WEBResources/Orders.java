@@ -2,10 +2,7 @@ package WEBResources;
 
 import Beans.Cart;
 import Beans.CartProduct;
-import Beans.Client;
-import Beans.Dish;
 import Services.OrderService;
-import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -46,4 +43,4 @@ public class Orders {
     }
 
 
-}
+ }
