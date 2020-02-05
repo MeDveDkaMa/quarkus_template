@@ -51,4 +51,12 @@ public class OrderService {
         return Dish.listAll();
     }
 
+    public List<Cart> getCartID(Client clientIN) {
+        Client client = Client.findById(clientIN.id);
+        Cart cart = new Cart();
+        cart.id = client.id;
+        return Cart.listAll();
+    }
+
+
 }

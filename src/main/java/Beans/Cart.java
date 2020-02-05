@@ -21,4 +21,10 @@ public class Cart extends PanacheEntity {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonbTransient
     public List<CartProduct> cartProducts;
+
+    public Cart(){
+
+    }
+
+
 }

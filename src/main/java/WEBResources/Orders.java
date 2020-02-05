@@ -2,6 +2,7 @@ package WEBResources;
 
 import Beans.Cart;
 import Beans.CartProduct;
+import Beans.Client;
 import Services.OrderService;
 
 import javax.inject.Inject;
@@ -41,6 +42,16 @@ public class Orders {
     public List<CartProduct> GetDish() {
         return orderService.getDishesInCart();
     }
+
+
+    @POST
+    @Path("orders/GetCartID")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Cart> GetCartID(Client client) {
+        return orderService.getCartID(client);
+    }
+
+
 
 
  }
