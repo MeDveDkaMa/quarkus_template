@@ -3,6 +3,7 @@ package WEBResources;
 import Beans.Cart;
 import Beans.CartProduct;
 import Beans.Client;
+import Beans.Dish;
 import Services.OrderService;
 
 import javax.inject.Inject;
@@ -22,7 +23,7 @@ public class Orders {
     @Path("orders/addToOrder")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addOrder(CartProduct cartProduct) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+    public Response addOrder(CartProduct cartProduct) {
         orderService.addToOrder(cartProduct);
         return Response.ok().status(201).build();
     }
@@ -31,16 +32,23 @@ public class Orders {
     @Path("orders/CreateOrder")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response CreateOrder(Cart cart) { //@FormParam String name, @FormParam String composition, @FormParam int price, @FormParam Long clientId
+    public Response CreateOrder(Cart cart) {
         orderService.createCart(cart);
         return Response.ok().status(201).build();
     }
 
-    @GET
+    @POST
     @Path("orders/GetOrder")
     @Produces(MediaType.APPLICATION_JSON)
+    public List<CartProduct> GetDish(Cart cart) {
+        return orderService.getDishesInCart2(cart);
+    }
+
+    @GET
+    @Path("orders/GetOrders")
+    @Produces(MediaType.APPLICATION_JSON)
     public List<CartProduct> GetDish() {
-        return orderService.getDishesInCart();
+        return orderService.getAllOrders();
     }
 
 
@@ -48,10 +56,18 @@ public class Orders {
     @Path("orders/GetCartID")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cart> GetCartID(Client client) {
-        return orderService.getCartID(client);
+        return orderService.getCartID2(client);
     }
 
 
+    @POST
+    @Path("orders/addProductInOrder")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addProductOrder(Dish[] dish)
+    {
+        orderService.addProductOrder(dish);
+        return Response.ok().status(201).build();
+    }
 
 
  }

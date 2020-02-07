@@ -7,6 +7,7 @@ import Beans.Dish;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
@@ -43,9 +44,17 @@ public class OrderService {
         cart.persist();
     }
 
-    public List<CartProduct> getDishesInCart(){
+    public List<CartProduct> getAllOrders(){
       return CartProduct.listAll();
     }
+
+
+    public List<CartProduct> getDishesInCart2(Cart cartIn){
+        Cart cart = Cart.findById(cartIn.id);
+        System.out.println(cart.cartProducts);
+        return cart.cartProducts;
+    }
+
 
     public List<Dish> GetDish() {
         return Dish.listAll();
@@ -58,5 +67,17 @@ public class OrderService {
         return Cart.listAll();
     }
 
+    public List<Cart> getCartID2(Client clientIN) {
+        Client client = Client.findById(clientIN.id);
+        return client.getCarts();
+    }
+
+
+    public void addProductOrder(Dish[] dishes) {
+       // Client client = Client.findById(clientIN.id);
+        Cart cart = new Cart();
+//        cart.cartProducts = dishes;
+
+    }
 
 }

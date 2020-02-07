@@ -26,5 +26,19 @@ public class Cart extends PanacheEntity {
 
     }
 
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public List<CartProduct> getCartProducts() {
+        return cartProducts;
+    }
+
+    public void setCartProducts(List<CartProduct> cartProducts) {
+        this.cartProducts = cartProducts;
+    }
 }
