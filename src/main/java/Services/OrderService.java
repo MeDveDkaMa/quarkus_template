@@ -81,7 +81,7 @@ public class OrderService {
 
     }
 
-    public Response DeleteProductsCart(Long id) {
+    public Response DeleteProductsCart(Cart id) {
         CartProduct.deleteByID(id);
         return Response.ok().status(201).build();
     }

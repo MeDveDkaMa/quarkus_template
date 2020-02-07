@@ -44,7 +44,7 @@ public class CartProduct extends PanacheEntity {
         this.dish = dish;
     }
 
-    public static void deleteByID(Long id){
+    public static void deleteByID(Cart id){
         delete("cart_id", id);
     }
 

@@ -56,7 +56,7 @@ public class Orders {
     @Path("orders/Delete")
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
-    public Response Delete(Long id) {
+    public Response Delete(Cart id) {
         return orderService.DeleteProductsCart(id);
     }
 
