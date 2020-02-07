@@ -53,6 +53,15 @@ public class Orders {
 
 
     @POST
+    @Path("orders/Delete")
+    @Transactional
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response Delete(Long id) {
+        return orderService.DeleteProductsCart(id);
+    }
+
+
+    @POST
     @Path("orders/GetCartID")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cart> GetCartID(Client client) {

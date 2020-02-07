@@ -44,6 +44,10 @@ public class CartProduct extends PanacheEntity {
         this.dish = dish;
     }
 
+    public static void deleteByID(Long id){
+        delete("cart_id", id);
+    }
+
     //    @OneToMany(mappedBy = "cartProduct", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 //    @JsonbTransient
 //    public List<Dish> dishes;

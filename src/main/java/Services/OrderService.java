@@ -7,6 +7,7 @@ import Beans.Dish;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,4 +81,8 @@ public class OrderService {
 
     }
 
+    public Response DeleteProductsCart(Long id) {
+        CartProduct.deleteByID(id);
+        return Response.ok().status(201).build();
+    }
 }
