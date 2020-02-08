@@ -34,7 +34,7 @@ public class Dishes {
     }
 
     @GET
-    @RolesAllowed({"Admin"})
+    @RolesAllowed({"Admin","User"})
     @Path("dish/GetDish")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Dish> GetDish() {
