@@ -5,6 +5,7 @@ import Beans.Role;
 import Services.ClientService;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -29,6 +30,7 @@ public class Clients {
     }
 
     @POST
+    //@RolesAllowed({""})
     @Path("client/login")
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(Client client) throws NoSuchAlgorithmException {

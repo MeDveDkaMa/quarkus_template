@@ -75,8 +75,14 @@ public class OrderService {
 
 
     public void addProductOrder(Dish[] dishes) {
-       // Client client = Client.findById(clientIN.id);
-        Cart cart = new Cart();
+        Dish dish = Dish.findById(dishes[0].id);
+        CartProduct cartProduct = new CartProduct();
+        cartProduct.setDish(dish);
+        cartProduct.persist();
+//        Cart cart = new Cart();
+//        cart.cartProducts.add(cartProduct);
+//        cart.persist();
+       // System.out.println(cartProduct);
 //        cart.cartProducts = dishes;
 
     }

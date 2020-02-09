@@ -17,7 +17,7 @@ public class CartProduct extends PanacheEntity {
     public Cart cart;
 
     @ManyToOne
-   // @JsonbTransient
+    //@JsonbTransient
     public Dish dish;
 
     public int getCount() {

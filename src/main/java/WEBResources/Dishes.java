@@ -24,7 +24,7 @@ public class Dishes {
     DishesService dishesService;
 
     @POST
-   // @RolesAllowed({"admin","user"})
+    @RolesAllowed({"Admin"})
     @Path("dish/addDish")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)

@@ -70,6 +70,7 @@ public class Orders {
 
 
     @POST
+    @Transactional
     @Path("orders/addProductInOrder")
     @Produces(MediaType.APPLICATION_JSON)
     public Response addProductOrder(Dish[] dish)
@@ -77,6 +78,7 @@ public class Orders {
         orderService.addProductOrder(dish);
         return Response.ok().status(201).build();
     }
+
 
 
  }
