@@ -79,6 +79,16 @@ public class Orders {
         return Response.ok().status(201).build();
     }
 
+    @POST
+    @Transactional
+    @Path("orders/addProductList")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response test(CartProduct[] cartProduct)
+    {
+        orderService.addProductList(cartProduct);
+        return Response.ok().status(201).build();
+    }
+
 
 
  }

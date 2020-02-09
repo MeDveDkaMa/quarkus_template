@@ -84,6 +84,16 @@ public class OrderService {
 
     }
 
+    public void addProductList(CartProduct[] cartProductIN) {
+        Dish dish = Dish.findById(cartProductIN[0].getDish().id);
+        Cart cart = Cart.findById(cartProductIN[0].getCart().id);
+        CartProduct cartProduct = new CartProduct();
+        cartProduct.dish = dish;
+        cartProduct.cart = cart;
+        cartProduct.count = cartProductIN[0].getCount();
+
+    }
+
     public Response DeleteProductsCart(Cart id) {
         CartProduct.deleteByID(id);
         return Response.ok().status(201).build();
