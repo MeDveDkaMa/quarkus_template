@@ -22,12 +22,22 @@ public class Clients {
     ClientService clientService;
 
     @POST
+    @RolesAllowed({"Admin"})
     @Path("client/add")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addClient(Client client) throws NoSuchAlgorithmException { //@FormParam String name, @FormParam Long clientId
       clientService.addClient(client);
       return Response.ok().status(201).build();
+    }
+
+    @POST
+    @Path("client/req")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response reqClient(Client client) throws NoSuchAlgorithmException { //@FormParam String name, @FormParam Long clientId
+        clientService.addClient(client);
+        return Response.ok().status(201).build();
     }
 
 
@@ -42,6 +52,7 @@ public class Clients {
 
 
     @GET
+    @RolesAllowed({"Admin"})
     @Path("client/GetClient")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Client> GetClient() {
