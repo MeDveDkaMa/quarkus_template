@@ -1,6 +1,7 @@
 package WEBResources;
 
 import Beans.Client;
+import Beans.Dish;
 import Beans.Role;
 import Services.ClientService;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
@@ -29,6 +30,8 @@ public class Clients {
       return Response.ok().status(201).build();
     }
 
+
+
     @POST
     //@RolesAllowed({""})
     @Path("client/login")
@@ -50,6 +53,16 @@ public class Clients {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Role> GetRole() {
         return clientService.GetRole();
+    }
+
+
+    @POST
+    @RolesAllowed({"Admin"})
+    @Path("client/Delete")
+    @Transactional
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response Delete(Client client) {
+        return clientService.DeleteClient(client);
     }
 
 }

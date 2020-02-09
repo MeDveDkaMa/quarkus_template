@@ -24,6 +24,10 @@ public class Dish extends PanacheEntity {
     public List<CartProduct> cartProducts;
 
 
+    public static void deleteByID(Dish dish){
+        delete("id", dish.id);
+    }
+
     public int getPrice() {
         return price;
     }

@@ -1,9 +1,12 @@
 package Services;
 
+import Beans.Cart;
+import Beans.CartProduct;
 import Beans.Dish;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @ApplicationScoped
@@ -25,4 +28,8 @@ public class DishesService {
         return Dish.listAll();
     }
 
+    public Response DeleteDish(Dish dish) {
+        Dish.deleteByID(dish);
+        return Response.ok().status(201).build();
+    }
 }

@@ -1,6 +1,7 @@
 package Services;
 
 import Beans.Client;
+import Beans.Dish;
 import Beans.Role;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
@@ -68,4 +69,8 @@ public class ClientService {
         return Role.listAll();
     }
 
+    public Response DeleteClient(Client client) {
+        Client.deleteByID(client);
+        return Response.ok().status(201).build();
+    }
 }

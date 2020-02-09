@@ -28,6 +28,10 @@ public class Client extends PanacheEntity {
     public Client() {
     }
 
+    public static void deleteByID(Client client){
+        delete("id", client.id);
+    }
+
     public String getUsername() {
         return username;
     }
