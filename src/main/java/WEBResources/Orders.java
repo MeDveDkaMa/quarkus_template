@@ -44,6 +44,29 @@ public class Orders {
         return orderService.getDishesInCart2(cart);
     }
 
+//    @POST
+//    @Path("orders/GetOrderByID")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List<Cart> GetDish(Client client) {
+//        return orderService.getCartID(client);
+//    }
+
+
+    @POST
+    @Path("orders/GetOrderByID")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CartProduct> GetDish2(Client client) {
+        return orderService.getDishesByID(client);
+    }
+
+//    @POST
+//    @Path("orders/GetOrderByID")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List<CartProduct> GetDish2(Cart cart) {
+//        return orderService.getDishesByID(cart);
+//    }
+
+
     @GET
     @Path("orders/GetOrders")
     @Produces(MediaType.APPLICATION_JSON)

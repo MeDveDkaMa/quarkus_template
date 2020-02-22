@@ -56,6 +56,28 @@ public class OrderService {
         return cart.cartProducts;
     }
 
+    public List<CartProduct> getDishesByID(Client clientIN){
+        Client client = Client.findById(clientIN.id);
+        List<Cart> cartList = client.getCarts();
+//        System.out.println(cart.get(0).getCartProducts());
+//        System.out.println(cart);
+        List<CartProduct> cartProductList = new ArrayList<>();
+        //cartProductList = cartList.get(0).getCartProducts();
+        for (Cart cart : cartList) {
+            List<CartProduct> cartProducts = cart.getCartProducts();
+
+            for ( CartProduct cartProduct : cartProducts ) {
+                cartProductList.add( cartProduct);
+
+            }
+
+            System.out.println();
+          //  cartProductList.a = value.getCartProducts();
+        }
+        //System.out.println(cartProductList);
+        return cartProductList;
+    }
+
 
     public List<Dish> GetDish() {
         return Dish.listAll();
@@ -64,7 +86,7 @@ public class OrderService {
     public List<Cart> getCartID(Client clientIN) {
         Client client = Client.findById(clientIN.id);
         Cart cart = new Cart();
-        cart.id = client.id;
+        cart.client= client;
         return Cart.listAll();
     }
 

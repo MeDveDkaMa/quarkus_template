@@ -20,7 +20,7 @@ public class Client extends PanacheEntity {
     @ManyToOne
     public Role role;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonbTransient
     public List<Cart> carts;
 

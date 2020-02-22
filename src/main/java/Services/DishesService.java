@@ -21,7 +21,6 @@ public class DishesService {
         dish.composition = dishIN.getComposition();
         dish.price = dishIN.getPrice();
         dish.persist();
-
     }
 
     public List<Dish> GetDish() {
