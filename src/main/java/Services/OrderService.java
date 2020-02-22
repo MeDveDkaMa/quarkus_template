@@ -59,8 +59,7 @@ public class OrderService {
     public List<CartProduct> getDishesByID(Client clientIN){
         Client client = Client.findById(clientIN.id);
         List<Cart> cartList = client.getCarts();
-//        System.out.println(cart.get(0).getCartProducts());
-//        System.out.println(cart);
+
         List<CartProduct> cartProductList = new ArrayList<>();
         //cartProductList = cartList.get(0).getCartProducts();
         for (Cart cart : cartList) {
