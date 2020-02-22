@@ -61,7 +61,7 @@ public class OrderService {
         List<Cart> cartList = client.getCarts();
 
         List<CartProduct> cartProductList = new ArrayList<>();
-        //cartProductList = cartList.get(0).getCartProducts();
+
         for (Cart cart : cartList) {
             List<CartProduct> cartProducts = cart.getCartProducts();
 
